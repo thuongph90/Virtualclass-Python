@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+</head>
+<style>
+    .table1{
+        display: inline-block;
+        /* border: 1px grey solid; */
+        width: 300px;
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 50px;
+        
+    }
+    
+    .table2{
+        display: inline-block;
+        /* border: 1px grey solid; */
+        width: 300px;
+        display: inline-block;
+        vertical-align: top;
+        margin-left:300px;
+
+    }
+</style>
+
+<body>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+                <div class="container">
+                  <a class="navbar-brand js-scroll-trigger" href="#page-top">Canary English</a>
+                  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                      <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#services">Course</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#portfolio">Galerry</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#team">Teachers Profile</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="#contact">Virtual Class</a>
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+    <div class="table1">
+        <table>
+            <thead>
+                <h1>Register</h1>
+            </thead>
+            <tbody>
+                <form action="/register" method="post">
+                    {% csrf_token %}
+                    <tr>
+                        <td>First Name:</td>
+                        <td> <input type="text" name="first_name" required></td>
+                    </tr>
+                    <tr>
+                        <td>Last name:</td>
+                        <td><input type="text" name="last_name" required></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type="text" name="email" required></td>
+                    </tr>
+                    <tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" name="password" minlength="8" required></td>
+                    </tr>
+                    <tr>
+                    <tr>
+                        <td>Confirm Password:</td>
+                        <td><input type="password" name="repassword" minlength="8" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Register"></td>
+                    </tr>
+                </form>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table2">
+        <table>
+            <thead>
+                <h1>Log In</h1>
+            </thead>
+            <tbody>
+                <form action="/login" method="post">
+                    {% csrf_token %}
+                    <tr>
+                        <td>Username:</td>
+                        <td><input type="text" name="email" required></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" name="password" minlength="8" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Log In"></td>
+                    </tr>
+                </form>
+            </tbody>
+        </table>
+    </div>
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

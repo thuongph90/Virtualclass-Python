@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login/css/register.css' %}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+</head>
+
+<body>
+    <div class="container">
+        <!---heading---->
+        <header class="heading"> Registration-Form</header>
+        <hr>
+        </hr>
+        <form action="/register" method="post">
+            {% csrf_token %}
+            <!---Form starting---->
+            <div class="row ">
+                <!--- For Name---->
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label class="username">Username :</label> </div>
+                        <div class="col-xs-8">
+                            <input type="text" name="user_name" id="fname" placeholder="Enter your Name" class="form-control ">
+                        </div>
+                    </div>
+                </div>
+                <!-- for teacher or students -->
+                <div class="col-sm-12">
+                        <div class ="row">
+                            <div class="col-xs-4 ">
+                              <label class="gender">You are:</label>
+                            </div>
+                        
+                            <div class="col-xs-4 teacher">	 
+                                <input type="radio" name="catergory"   value="teacher">Teacher</input>
+                            </div>
+                            
+                            <div class="col-xs-4 student">
+                                <input type="radio"  name="catergory"  value="student" >Student</input>
+                            </div>
+                       
+                          </div>
+                <!-----For email---->
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label class="mail">Email :</label></div>
+                        <div class="col-xs-8">
+                            <input type="email" name="email" id="email" placeholder="Enter your email" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <!-----For Password  ---->
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label class="pass">Password :</label></div>
+                        <div class="col-xs-8">
+                            <input type="password" name="password" id="password" placeholder="Enter your Password"
+                                class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <!--For confirm password -->
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label class="pass"> Confirm Password :</label></div>
+                        <div class="col-xs-8">
+                            <input type="password" name="repassword" id="repassword" placeholder="Enter your Password"
+                                class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <!-----------For Phone number-------->
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-xs-4 ">
+                            <label class="pass" >Phone Number:</label>
+                        </div>
+
+                        <div class="col-xs-4 male">
+                            <input class="form-control" type="tel" name="phone_number" id="phone_number"
+                                placeholder="+1-234-567-8910">
+                        </div>
+
+                    </div>
+                    <div class="col-sm-12" id="button">
+                        <div class="btn btn-warning"><input type="submit" value="Register"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+
+    </div>
+
+
+
+
+</body>
+
+</html>
